@@ -17,17 +17,54 @@ const decreaseItems = document.querySelector(".fa-chevron-down");
 const itemAmount = document.querySelector(".item-amount");
 const cartTotal = document.querySelector(".cart-total");
 const clearCartButton = document.querySelector(".clear-cart-btn");
+const productDOM = document.querySelector(".product-center")
 
 let cart = [];
 
 //get products
 class Product {
+    async getProduct() {
+        try{
+            let contentful = await client.getEntries({
+                content_type: 'hbcProducts'
+            });
 
+            let products = contentful.items;
+            products.map(item => {
+                const {title, price} = item.fields;
+                const {id} = item.sys;
+                const image = item.fields.image.fields.file.url;
+                return {title, price, id, image};
+            });
+            console.log(products);
+        
+            return products;
+        } catch (error) {
+            console.log(error);
+        };
+    };
 }
 
 //display products
 class UI {
-
+    displayProducts(products) {
+        let result = "";
+        products.forEach(product => {
+            result += `
+                <article class="product">
+                    <div class="products-images">
+                        <img src=${product.image} alt="product" class="product-img">
+                        <button class="add-cart-btn" data-id=${product.id}>
+                            <i class="fas fa-shopping-cart second-shopping-cart"></i>
+                            add to cart
+                        </button>
+                    </div>
+                    <h3>${product.title}</h3>
+                    <h4>${product.price} Ft</h4>
+                </article>`;
+        });
+        productDOM.innerHTML = result;
+    };
 }
 
 //using local storage to save datas
@@ -35,9 +72,11 @@ class Storage {
 
 }
 
-window.addEventListener("DOMContentLoaded", event => {
-    const product = new Product();
+document.addEventListener("DOMContentLoaded", () => {
+    const products = new Product();
     const ui = new UI();
     
-
+    products.getProduct().then(products => {
+        ui.displayProducts(products);
+    });
 });
