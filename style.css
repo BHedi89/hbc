@@ -265,3 +265,41 @@
 }
 
 /*---------- end of cart ----------*/
+
+/*---------- card ----------*/
+
+.card-img-top {
+    height: 20rem;
+    object-fit: cover;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    text-align: center;
+}
+
+.card-deck {
+    width: 90vw;
+    margin: 0 0 50px auto;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
+}
+
+.card-title {
+    background-color: rgba(128, 128, 128, 0.678);
+    padding: 10px;
+    color: rgb(1, 1, 19);
+}
+
+.card-title:hover {
+    color: darkblue;
+}
+
+/*---------- end of card ----------*/

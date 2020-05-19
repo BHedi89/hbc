@@ -1,10 +1,3 @@
-/*
-  This application shopping cart part is based on the E-Commerce JavaScript Tutorial - Shopping Cart from Scratch,
-  link: https://www.youtube.com/watch?v=023Psne_-_4, this is really great tutorial by John Smilga.
-  I really enjoy to do this and also learn a lot.
-  Any other parts are made by me.
-*/
-
 const client = contentful.createClient({
     // This is the space ID. A space is like a project folder in Contentful terms
     space: "8giyq4i3wcjo",
@@ -35,7 +28,7 @@ class Product {
     async getProducts() {
         try {
           let contentful = await client.getEntries({
-            content_type: "hbcProducts"
+            content_type: "hbcSoutache"
           });
           
           let products = contentful.items;
@@ -184,15 +177,15 @@ class UI {
             Storage.saveProduct(cart);
             this.setCartValues(cart);
             addAmount.nextElementSibling.innerText = tempItem.amount;
-          } else if(event.target.classList.contains("fa-chevron-up")){
+          } else if(event.target.classList.contains("fa-chevron-down")){
             let lowerAmount = event.target;
             let id = lowerAmount.dataset.id;
-            let tempItem = car5t.find(item => item.id === id);
+            let tempItem = cart.find(item => item.id === id);
             tempItem.amount = tempItem.amount - 1;
             if(tempItem.amount > 0) {
               Storage.saveCart(cart);
               this.setCartValues(cart);
-              lowerAmount.nextElementSibling.innerText = tempItem.amount;
+              lowerAmount.previousElementSibling.innerText = tempItem.amount;
             } else {
               cartContent.removeChild(lowerAmount.parentElement.parentElement);
               this.removeItem(id);
@@ -252,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.setupAPP();
     
     products.getProducts().then(products => {
-      //ui.displayProducts(products);
+      ui.displayProducts(products);
       Storage.saveProduct(products);
     }).then(() => {
       ui.getCartButton();
