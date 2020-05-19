@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.setupAPP();
     
     products.getProducts().then(products => {
-      //ui.displayProducts(products);
+      ui.displayProducts(products);
       Storage.saveProduct(products);
     }).then(() => {
       ui.getCartButton();
