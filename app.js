@@ -96,6 +96,7 @@ class UI {
       button.addEventListener("click", event => {
         event.target.innerText = 'In Cart';
         event.target.disabled = true;
+        
         //get product from the products
         let cartItem = { ...Storage.getProduct(buttonId), amount: 1 };
         //add product to the cart
@@ -229,17 +230,22 @@ class UI {
     infoButtonsList = infoButtons;
 
     infoButtons.forEach(button => {
-
       let modal = document.getElementById("myModal");
-      let span = document.getElementsByClassName("close")[0];
+      let closeModal = document.getElementsByClassName("close")[0];
+      let buttonId = button.dataset.id;
 
-      button.onclick = function () {
+      button.addEventListener("click", () => { 
+        //show modal
         modal.style.display = "block";
-      }
 
-      span.onclick = function () {
+        //display image info into the modal
+        let modalInfo = { ...Storage.getProduct(buttonId)}; //todo
+        this.displayModal(modalInfo);
+      });
+
+      closeModal.addEventListener("click", () => {
         modal.style.display = "none";
-      }
+      });
     });
 
   };
@@ -248,13 +254,10 @@ class UI {
     const createDiv = document.createElement("div");
     createDiv.classList.add("modal-item");
     createDiv.innerHTML = `
-        <img class="showimage img-responsive" src=${product.image} data-id=${product.id}/>`;
+        <img class="modal-img" src=${product.image}/>
+        <p>${product.title}</p>
+        <p>${product.price}</p>`;
     modalContent.appendChild(createDiv);
-  };
-
-  showModal() {
-    modalOverlay.classList.add("transparentBcg2");
-    infoModal.classList.add("showModal");
   };
 }
 
