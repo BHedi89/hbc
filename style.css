@@ -114,11 +114,12 @@
 }
 
 .product-img {
-    display: block;
-    width: 286px;
     transition: all 0.3s linear;
-    height: 180px;
     object-fit: cover;
+    max-width: 286px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
 }
 
 .card {
@@ -128,6 +129,7 @@
 .products-images {
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .product p {
@@ -294,8 +296,14 @@
 /*---------- modal ----------*/
 
 .modal-img {
-    width: 200px;
-    height: 200px;
+    object-fit: cover;
+    float: left;
+    margin-right: 20px;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    border: none;
 }
 
 .modal {
@@ -317,21 +325,27 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 70%;
 }
   
-.close {
-    color: #aaaaaa;
+.fa-window-close {
+    color: #000;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    text-align: right;
 }
   
-.close:hover,
-.close:focus {
-    color: #000;
+.fa-window-close:hover,
+.fa-window-close:focus {
+    color: #aaaaaa;
     text-decoration: none;
     cursor: pointer;
 }
+
+.responsive {
+    max-width: 100%;
+    height: auto;
+  }
 
 /*---------- end of modal ----------*/

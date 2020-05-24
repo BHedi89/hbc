@@ -231,7 +231,7 @@ class UI {
 
     infoButtons.forEach(button => {
       let modal = document.getElementById("myModal");
-      let closeModal = document.getElementsByClassName("close")[0];
+      let closeModal = document.getElementsByClassName("fa-window-close")[0];
       let buttonId = button.dataset.id;
 
       button.addEventListener("click", () => { 
@@ -239,24 +239,33 @@ class UI {
         modal.style.display = "block";
 
         //display image info into the modal
-        let modalInfo = { ...Storage.getProduct(buttonId)}; //todo
+        let modalInfo = { ...Storage.getProduct(buttonId)};8
         this.displayModal(modalInfo);
       });
 
       closeModal.addEventListener("click", () => {
+        //close the modal
         modal.style.display = "none";
+
+        //clear the modal
+        this.clearModal();
       });
     });
+  };
 
+  clearModal() {
+    const modalItem = document.querySelector(".modal-item");
+    modalContent.removeChild(modalItem); //error????? but working
   };
 
   displayModal(product) {
     const createDiv = document.createElement("div");
     createDiv.classList.add("modal-item");
     createDiv.innerHTML = `
-        <img class="modal-img" src=${product.image}/>
-        <p>${product.title}</p>
-        <p>${product.price}</p>`;
+        <img class="modal-img responsive" src=${product.image}>
+        <p class="productInfo">Product name: ${product.title}</p>
+        <p class="productInfo">Price: ${product.price} Ft</p>
+        <p class="productInfo">Description: </p>`;
     modalContent.appendChild(createDiv);
   };
 }
