@@ -381,7 +381,7 @@
     transition: 0.5s;
 }
 
-.fa-window-close {
+#closeMenu {
     position: absolute;
     top: 10px;
     right: 25px;
