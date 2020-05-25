@@ -18,9 +18,8 @@ const productDOM = document.querySelector(".product-center")
 const cartItemDOM = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
 const cartBtn = document.querySelector(".cart-btn");
-const infoModal = document.querySelector(".modal");
-const modalOverlay = document.querySelector(".modal-overlay");
 const modalContent = document.querySelector(".modal-content");
+const shopNowBtn = document.querySelector(".banner-button");
 
 let cart = [];
 
@@ -37,10 +36,10 @@ class Product {
 
       let products = contentful.items;
       products = products.map(item => {
-        const { title, price } = item.fields;
+        const { title, price, description } = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
-        return { title, price, id, image };
+        return { title, price, id, image, description };
       });
 
       return products;
@@ -265,9 +264,16 @@ class UI {
         <img class="modal-img responsive" src=${product.image}>
         <p class="productInfo">Product name: ${product.title}</p>
         <p class="productInfo">Price: ${product.price} Ft</p>
-        <p class="productInfo">Description: </p>`;
+        <p class="productInfo">Description: ${product.description}</p>`;
     modalContent.appendChild(createDiv);
   };
+
+  scrollDownToProducts(){
+    shopNowBtn.addEventListener("click", () => {
+      window.scrollBy(0, 700);
+    });
+  };
+
 }
 
 //using local storage to save datas
@@ -304,6 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.getCartButton();
     ui.cartLogic();
     ui.getProductInfo();
+    ui.scrollDownToProducts();
   });
 
 });

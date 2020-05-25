@@ -19,6 +19,7 @@
 
 .header-title {
     display: inline;
+    font-size: 30px;
 }
 
 .header-container {
@@ -99,7 +100,6 @@
 
 .product-title {
     text-align: center;
-    margin-top: 50px;
     padding: 40px;
 }
 
