@@ -20,6 +20,9 @@ const cartOverlay = document.querySelector(".cart-overlay");
 const cartBtn = document.querySelector(".cart-btn");
 const modalContent = document.querySelector(".modal-content");
 const shopNowBtn = document.querySelector(".banner-button");
+const menuBtn = document.querySelector(".menu-btn");
+const menuOverlay = document.querySelector(".menu-overlay");
+const menuDOM = document.querySelector(".menu");
 
 let cart = [];
 
@@ -274,6 +277,30 @@ class UI {
     });
   };
 
+  getMenu() {
+    menuBtn.addEventListener("click", () => {
+      document.getElementById("myMenu").style.width = "250px";
+      this.showMenu();
+    });
+  };  
+
+  closeMenu(){
+    let closeMenuBtn = document.querySelector("#closeMenu");
+
+    closeMenuBtn.addEventListener("click", () => {
+      document.getElementById("myMenu").style.width = "0";
+      this.hideMenu();
+    });
+  };
+
+  showMenu(){
+    menuOverlay.classList.add("transparentBcgMenu");
+  };
+
+  hideMenu() {
+    menuOverlay.classList.remove("transparentBcgMenu");
+  };
+
 }
 
 //using local storage to save datas
@@ -311,6 +338,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.cartLogic();
     ui.getProductInfo();
     ui.scrollDownToProducts();
+    ui.getMenu();
+    ui.closeMenu();
   });
 
 });
