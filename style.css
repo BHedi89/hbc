@@ -19,7 +19,6 @@
 
 .header-title {
     display: inline;
-    /* font-size: 30px; */
 }
 
 @media screen and (min-width: 601px) {
@@ -140,6 +139,18 @@
 
 .card {
     width: 286px;
+}
+
+@media screen and (min-width: 601px) {
+    .card {
+        margin-left: 0;
+    }
+}
+  
+@media screen and (max-width: 600px) {
+    .card {
+        margin-left: 80px;
+    }
 }
 
 .products-images {
@@ -359,10 +370,10 @@
     cursor: pointer;
 }
 
-.responsive {
+.responsive-modal-img {
     max-width: 100%;
     height: auto;
-  }
+}
 
 /*---------- end of modal ----------*/
 
@@ -426,3 +437,48 @@
 }
 
 /*---------- end of menu ----------*/
+
+/*---------- about ----------*/
+
+.about {
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 601px) {
+    .about {
+        height: 120vh;
+    }
+}
+
+.about-title {
+    padding: 60px;
+    text-align: center;
+}
+
+.circular-portrait {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 35px;
+}
+  
+.circular-portrait img {
+    width: 100%;
+    height: auto;
+}
+
+.about-text {
+    padding: 45px;
+    text-align: justify;
+    width: 700px;
+    margin-top: 70px;
+}
+
+@media screen and (max-width: 601px){
+    .about-text {
+        margin-top: 0;
+    }
+}
+
+/*---------- end of about ----------*/

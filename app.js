@@ -264,7 +264,7 @@ class UI {
     const createDiv = document.createElement("div");
     createDiv.classList.add("modal-item");
     createDiv.innerHTML = `
-        <img class="modal-img responsive" src=${product.image}>
+        <img class="modal-img responsive-modal-img" src=${product.image}>
         <p class="productInfo">Product name: ${product.title}</p>
         <p class="productInfo">Price: ${product.price} Ft</p>
         <p class="productInfo">Description: ${product.description}</p>`;
@@ -303,7 +303,7 @@ class UI {
     menuOverlay.classList.remove("transparentBcgMenu");
   };
 
-  scrollProductsFromMenu() {
+  scrollProductsFromMenu() {0
     let productsMenu = document.querySelector(".products");
     let productMenuBtn = document.querySelector(".menu-to-products");
 
@@ -314,6 +314,16 @@ class UI {
     });
   };
 
+  scrollDownAbout() {
+    let aboutMenu = document.querySelector(".about");
+    let aboutMenuBtn = document.querySelector(".menu-to-about");
+
+    aboutMenuBtn.addEventListener("click", () => {
+      document.getElementById("myMenu").style.width = "0";
+      this.hideMenu();
+      aboutMenu.scrollIntoView();
+    });
+  }
 }
 
 //using local storage to save datas
@@ -354,6 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.getMenu();
     ui.closeMenu();
     ui.scrollProductsFromMenu();
+    ui.scrollDownAbout();
   });
 
 });
