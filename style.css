@@ -451,6 +451,7 @@
     overflow: hidden;
     border-radius: 50%;
     margin-left: 35px;
+    margin-bottom: 100px;
 }
   
 .circular-portrait img {
@@ -471,10 +472,5 @@
     }
 }
 
-@media screen and (max-width: 768px){
-    .circular-portrait img {
-        margin-right: 5px;
-    }
-}
 
 /*---------- end of about ----------*/
