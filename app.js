@@ -275,7 +275,6 @@ class UI {
     let scrollToProducts = document.querySelector(".product-title");
 
     shopNowBtn.addEventListener("click", () => {
-      //window.scrollBy(0, 700);
       scrollToProducts.scrollIntoView();
     });
   };
@@ -302,6 +301,17 @@ class UI {
 
   hideMenu() {
     menuOverlay.classList.remove("transparentBcgMenu");
+  };
+
+  scrollProductsFromMenu() {
+    let productsMenu = document.querySelector(".products");
+    let productMenuBtn = document.querySelector(".menu-to-products");
+
+    productMenuBtn.addEventListener("click", () => {
+      document.getElementById("myMenu").style.width = "0";
+      this.hideMenu();
+      productsMenu.scrollIntoView();
+    });
   };
 
 }
@@ -343,6 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.scrollDownToProducts();
     ui.getMenu();
     ui.closeMenu();
+    ui.scrollProductsFromMenu();
   });
 
 });
