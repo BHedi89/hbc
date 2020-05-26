@@ -147,7 +147,7 @@
     }
 }
   
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 601px) {
     .card {
         margin-left: 80px;
     }
