@@ -272,8 +272,11 @@ class UI {
   };
 
   scrollDownToProducts(){
+    let scrollToProducts = document.querySelector(".product-title");
+
     shopNowBtn.addEventListener("click", () => {
-      window.scrollBy(0, 700);
+      //window.scrollBy(0, 700);
+      scrollToProducts.scrollIntoView();
     });
   };
 

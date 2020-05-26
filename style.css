@@ -19,7 +19,19 @@
 
 .header-title {
     display: inline;
-    font-size: 30px;
+    /* font-size: 30px; */
+}
+
+@media screen and (min-width: 601px) {
+    .header-title {
+      font-size: 30px;
+    }
+}
+  
+@media screen and (max-width: 600px) {
+    .header-title {
+      font-size: 20px;
+    }
 }
 
 .header-container {
@@ -97,6 +109,10 @@
 /*---------- end of background ----------*/
 
 /*---------- product ----------*/
+
+.products {
+    height: 0.5px;
+}
 
 .product-title {
     text-align: center;
