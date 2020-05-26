@@ -473,8 +473,7 @@
 
 @media screen and (max-width: 768px){
     .circular-portrait img {
-        width: 100%;
-        height: auto;
+        margin-right: 5px;
     }
 }
 
