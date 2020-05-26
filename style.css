@@ -27,7 +27,7 @@
     }
 }
   
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 601px) {
     .header-title {
       font-size: 20px;
     }
@@ -244,7 +244,7 @@
     visibility: visible;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 601px) {
     .cart {
       width: 30vw;
       min-width: 450px;
@@ -466,7 +466,7 @@
     margin-top: 70px;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 601px){
     .about-text {
         margin-top: 0;
     }
