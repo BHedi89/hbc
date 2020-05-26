@@ -446,7 +446,7 @@
 
 @media screen and (max-width: 601px) {
     .about {
-        height: 120vh;
+        height: 150vh;
     }
 }
 
@@ -478,7 +478,6 @@
 @media screen and (max-width: 601px){
     .about-text {
         margin-top: 0;
-        margin-bottom: 50px;
     }
 }
 
