@@ -141,23 +141,18 @@
     width: 286px;
 }
   
-@media only screen and (max-width: 601px) {
+@media screen and (max-width: 601px) {
     .card {
         margin-left: 20px;
     }
 }
 
-@media only screen and (max-width: 769px) {
+/* bigger screen */
+/* @media screen and (max-width: 769px) {
     .card {
         margin-left: 80px;
     }
-}
-
-@media only screen and (min-width: 600px) {
-    .card {
-        margin-left: 80px;
-    }
-}
+} */
 
 .products-images {
     position: relative;
