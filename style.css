@@ -479,7 +479,7 @@
 }
 
 @media screen and (max-width: 601px){
-    .circular-portrait img {
+    .circular-portrait {
         margin-left: 10px;
     }
 }
