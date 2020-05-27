@@ -140,12 +140,6 @@
 .card {
     width: 286px;
 }
-
-/* @media only screen and (min-width: 601px) {
-    .card {
-        margin-left: 20px;
-    }
-} */
   
 @media only screen and (max-width: 601px) {
     .card {
