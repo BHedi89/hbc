@@ -468,22 +468,17 @@
 }
 
 @media screen and (max-width: 601px){
-    .about-text {
-        margin-top: 0;
-    }
-}
-
-@media only screen and (max-width: 601px){
     .circular-portrait {
         margin-left: 5px;
         margin-right: 5px;
     }
 }
 
-@media only screen and (max-width: 769px){
+/* bugger screen */
+/* @media screen and (max-width: 769px){
     .circular-portrait {
         margin-left: 40px;
     }
-}
+} */
 
 /*---------- end of about ----------*/
