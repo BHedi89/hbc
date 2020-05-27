@@ -153,6 +153,12 @@
     }
 }
 
+@media screen and (max-width: 769px) {
+    .card {
+        margin-left: 80px;
+    }
+}
+
 .products-images {
     position: relative;
     overflow: hidden;
@@ -469,6 +475,12 @@
 @media screen and (max-width: 601px){
     .about-text {
         margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 601px){
+    .circular-portrait img {
+        margin-right: 10px;
     }
 }
 
