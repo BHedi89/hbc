@@ -146,12 +146,18 @@
         margin-left: 20px;
     }
 }
-/* 
+
 @media only screen and (max-width: 769px) {
     .card {
         margin-left: 80px;
     }
-} */
+}
+
+@media only screen and (min-width: 600px) {
+    .card {
+        margin-left: 80px;
+    }
+}
 
 .products-images {
     position: relative;
