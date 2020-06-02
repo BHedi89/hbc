@@ -241,7 +241,7 @@ class UI {
         modal.style.display = "block";
 
         //display image info into the modal
-        let modalInfo = { ...Storage.getProduct(buttonId)};8
+        let modalInfo = { ...Storage.getProduct(buttonId)};
         this.displayModal(modalInfo);
       });
 

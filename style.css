@@ -34,14 +34,14 @@
 }
 
 .header-container {
-    position: sticky;
+    position: fixed;
     width: 100%;
     height: 60px;
     top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(231, 229, 240);
+    background-color: gold;
     z-index: 1;
 }
 
@@ -69,8 +69,8 @@
 /*----------background ----------*/
 
 .page-bcg {
-    min-height: calc(100vh - 60px);
-    background: url("./images/background.jpg") center/cover no-repeat;
+    min-height: calc(106vh - 60px);
+    background: url("./images/bcg.jpg")  center/cover no-repeat;  
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,6 +139,7 @@
 
 .card {
     width: 286px;
+    background-color: #ffffffb2;
 }
   
 @media screen and (max-width: 601px) {
@@ -168,6 +169,7 @@
     display: flex;
     justify-content: space-between;
     height: 60px;
+    background-color: rgba(243, 222, 104, 0.822);
 }
 
 .add-cart-btn {
@@ -205,6 +207,7 @@
 .fa-info-circle {
     cursor: pointer;
     border: none;
+    background-color: rgba(243, 222, 104, 0.822);
 }
 
 /*---------- end of product ----------*/
@@ -441,18 +444,28 @@
 
 /*---------- about ----------*/
 
+.about {
+    min-height: 100vh;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+}
+
 .about-title {
     padding: 60px;
     text-align: center;
 }
 
 .circular-portrait {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     overflow: hidden;
     border-radius: 50%;
-    margin-left: 35px;
+    margin-left: 30px;
     margin-bottom: 100px;
+    margin-top: 10px;
 }
   
 .circular-portrait img {
@@ -463,8 +476,9 @@
 .about-text {
     padding: 45px;
     text-align: justify;
-    width: 700px;
-    margin-top: 70px;
+    width: 500px;
+    height: 350px;
+    margin-left: 20px;
 }
 
 @media screen and (max-width: 601px){
@@ -474,7 +488,7 @@
     }
 }
 
-/* bugger screen */
+/* bigger screen */
 /* @media screen and (max-width: 769px){
     .circular-portrait {
         margin-left: 40px;
