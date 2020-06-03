@@ -129,7 +129,7 @@
 
 @media screen and (max-width: 600px) {
     .product-title h1{
-        font-size: 60px;
+        font-size: 10px;
     }
 }
 
@@ -465,7 +465,7 @@
 
 @media screen and (max-width: 600px) {
     .about-title {
-        font-size: 80px;
+        font-size: 30px;
     }
 }
 
@@ -479,7 +479,7 @@
 
 @media screen and (max-height: 450px) {
     .about {
-        height: 180vh;
+        height: 220vh;
     }
 }
 
