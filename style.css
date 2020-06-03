@@ -7,6 +7,18 @@
 
 /*---------- header ----------*/
 
+.header-container {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gold;
+    z-index: 1;
+}
+
 .header {
     width: 100%;
     max-width: 1170px;
@@ -31,18 +43,6 @@
     .header-title {
       font-size: 20px;
     }
-}
-
-.header-container {
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: gold;
-    z-index: 1;
 }
 
 .fa-bars, .fa-shopping-cart {
@@ -143,13 +143,13 @@
     grid-row-gap: 2rem;
 }
 
-.product-box {
+/* .product-box {
     background-color: rgba(239, 233, 252, 0.562);
     padding-top: 70px;
     padding-bottom: 70px;
     margin-left: 100px;
     margin-right: 100px;
-}
+} */
 
 .product-img {
     transition: all 0.3s linear;
