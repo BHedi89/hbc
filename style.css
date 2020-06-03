@@ -69,6 +69,7 @@
 /*----------background ----------*/
 
 .page-bcg {
+    width: 100%;
     min-height: calc(108vh - 60px);
     background: url("./images/bcg.jpg")  center/cover no-repeat; 
     display: flex;
