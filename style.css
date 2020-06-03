@@ -140,8 +140,14 @@
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     grid-column-gap: 1.5rem;
     grid-row-gap: 2rem;
-    background-color:  rgba(239, 233, 252, 0.562);
-    padding: 100px;
+}
+
+.product-box {
+    background-color: rgba(239, 233, 252, 0.562);
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .product-img {
