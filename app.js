@@ -315,7 +315,7 @@ class UI {
   };
 
   scrollDownAbout() {
-    let aboutMenu = document.querySelector(".about");
+    let aboutMenu = document.querySelector(".about-title");
     let aboutMenuBtn = document.querySelector(".menu-to-about");
 
     aboutMenuBtn.addEventListener("click", () => {
