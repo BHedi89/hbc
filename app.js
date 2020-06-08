@@ -6,7 +6,6 @@ const client = contentful.createClient({
 });
 
 //variables
-
 const cartItems = document.querySelector(".cart-items");
 const cartContent = document.querySelector(".cart-content");
 const closeCartButton = document.querySelector(".close-cart");
@@ -24,12 +23,14 @@ const menuBtn = document.querySelector(".menu-btn");
 const menuOverlay = document.querySelector(".menu-overlay");
 const menuDOM = document.querySelector(".menu");
 
+//cart array
 let cart = [];
 
+//buttons arrays
 let cartButtonsList = [];
 let infoButtonsList = [];
 
-//get products
+//get products from Contentful
 class Product {
   async getProducts() {
     try {
@@ -52,8 +53,8 @@ class Product {
   }
 }
 
-//display products
 class UI {
+  //display products from Contentful
   displayProducts(products) {
     let result = "";
     products.forEach(product => {
@@ -81,6 +82,7 @@ class UI {
     productDOM.innerHTML = result;
   }
 
+  //"add to cart" buttons funcionality
   getCartButton() {
     let cartButtons = [...document.querySelectorAll(".add-cart-btn")]; //make an array from the buttons
     cartButtonsList = cartButtons;
@@ -115,6 +117,7 @@ class UI {
     });
   };
 
+  //set vlaues after add a product to the cart
   setCartValues(cart) {
     let tempTotal = 0;
     let itemTotal = 0;
@@ -128,6 +131,7 @@ class UI {
     cartItems.innerText = itemTotal;
   };
 
+  //display a product to the cart
   displayProductToTheCart(item) {
     const createDiv = document.createElement("div");
     createDiv.classList.add("cart-item");
@@ -146,11 +150,13 @@ class UI {
     cartContent.appendChild(createDiv);
   };
 
+  //cart show
   showCart() {
     cartOverlay.classList.add("transparentBcg");
     cartItemDOM.classList.add("showCart");
   };
 
+  //setup the application values
   setupAPP() {
     cart = Storage.getCart();
     this.setCartValues(cart);
@@ -159,15 +165,18 @@ class UI {
     closeCartButton.addEventListener("click", this.hideCart);
   };
 
+  //populate the cart
   populateCart() {
     cart.forEach(item => this.displayProductToTheCart(item));
   };
 
+  //hide the cart
   hideCart() {
     cartOverlay.classList.remove("transparentBcg");
     cartItemDOM.classList.remove("showCart");
   };
 
+  //how to work the cart functions like increase/decrease products number, remove product etc.
   cartLogic() {
     clearCartButton.addEventListener("click", () => {
       this.clearCart();
@@ -205,6 +214,7 @@ class UI {
     });
   };
 
+  //clear out everything from the cart
   clearCart() {
     let cartItems = cart.map(item => item.id);
     cartItems.forEach(id => this.removeItem(id));
@@ -214,6 +224,7 @@ class UI {
     this.hideCart();
   };
 
+  //remove one product from the cart
   removeItem(id) {
     cart = cart.filter(item => item.id !== id);
     this.setCartValues(cart);
@@ -223,10 +234,12 @@ class UI {
     button.innerHTML = `<i class="fas fa-shopping-cart second-shopping-cart"></i>add to cart`;
   };
 
+  //return only one cart button from the array
   getSingleButton(id) {
     return cartButtonsList.find(button => button.dataset.id === id);
   };
 
+  //show product info in a modal
   getProductInfo() {
     let infoButtons = [...document.querySelectorAll(".fa-info-circle")]; //make an array from the buttons
     infoButtonsList = infoButtons;
@@ -255,11 +268,13 @@ class UI {
     });
   };
 
+  //clear the modal
   clearModal() {
     const modalItem = document.querySelector(".modal-item");
     modalContent.removeChild(modalItem); //error????? but working
   };
 
+  //display the modal
   displayModal(product) {
     const createDiv = document.createElement("div");
     createDiv.classList.add("modal-item");
@@ -271,6 +286,7 @@ class UI {
     modalContent.appendChild(createDiv);
   };
 
+  //scroll down to product with "shop now" button
   scrollDownToProducts(){
     let scrollToProducts = document.querySelector(".product-title");
 
@@ -279,6 +295,7 @@ class UI {
     });
   };
 
+  //get the menu from menu icon on the header
   getMenu() {
     menuBtn.addEventListener("click", () => {
       document.getElementById("myMenu").style.width = "250px";
@@ -286,6 +303,7 @@ class UI {
     });
   };  
 
+  //close the menu with it's "x" button
   closeMenu(){
     let closeMenuBtn = document.querySelector("#closeMenu");
 
@@ -295,14 +313,17 @@ class UI {
     });
   };
 
+  //show the menu
   showMenu(){
     menuOverlay.classList.add("transparentBcgMenu");
   };
 
+  //hide the menu
   hideMenu() {
     menuOverlay.classList.remove("transparentBcgMenu");
   };
 
+  //scroll down to the product page from menu
   scrollProductsFromMenu() {0
     let productsMenu = document.querySelector(".products");
     let productMenuBtn = document.querySelector(".menu-to-products");
@@ -314,6 +335,7 @@ class UI {
     });
   };
 
+  //scroll down to the about page from menu
   scrollDownAbout() {
     let aboutMenu = document.querySelector(".about-title");
     let aboutMenuBtn = document.querySelector(".menu-to-about");
@@ -325,6 +347,7 @@ class UI {
     });
   }
 
+  //scroll down to the contactpage from menu
   scrollDownContact() {
     let contactMenu = document.querySelector(".contact-title");
     let contactMenuBtn = document.querySelector(".menu-to-contact");
@@ -335,6 +358,9 @@ class UI {
       contactMenu.scrollIntoView();
     });
   };
+
+  // contact from validations
+
 }
 
 //using local storage to save datas
@@ -357,6 +383,7 @@ class Storage {
   };
 };
 
+//DOM load
 document.addEventListener("DOMContentLoaded", () => {
   const products = new Product();
   const ui = new UI();
@@ -378,5 +405,4 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.scrollDownAbout();
     ui.scrollDownContact();
   });
-
 });
