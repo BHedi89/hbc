@@ -324,6 +324,17 @@ class UI {
       aboutMenu.scrollIntoView();
     });
   }
+
+  scrollDownContact() {
+    let contactMenu = document.querySelector(".contact-title");
+    let contactMenuBtn = document.querySelector(".menu-to-contact");
+
+    contactMenuBtn.addEventListener("click", () => {
+      document.getElementById("myMenu").style.width = "0";
+      this.hideMenu();
+      contactMenu.scrollIntoView();
+    });
+  };
 }
 
 //using local storage to save datas
@@ -365,6 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.closeMenu();
     ui.scrollProductsFromMenu();
     ui.scrollDownAbout();
+    ui.scrollDownContact();
   });
 
 });
