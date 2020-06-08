@@ -579,7 +579,7 @@
 }
 
 .col1{
-    background: #fff;
+    background: rgba(255, 255, 255, 0.76);
     padding: 3%;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
