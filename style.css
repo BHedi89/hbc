@@ -635,7 +635,7 @@
 
 @media screen and (min-width: 600px) {
     .form button {
-      width: 70%;
+      width: 100%;
     }
 }
 
