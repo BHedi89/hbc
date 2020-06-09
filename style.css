@@ -564,7 +564,7 @@
 }
 
 .contact{
-    padding: 10%;
+    padding: 7%;
     height: 400px;
 }
 
@@ -635,7 +635,7 @@
 
 @media screen and (min-width: 600px) {
     .form button {
-      width: 50%;
+      width: 70%;
     }
 }
 
