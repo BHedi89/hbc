@@ -564,7 +564,7 @@
 }
 
 .contact{
-    padding: 7%;
+    padding: 10%;
     height: 400px;
 }
 
@@ -631,6 +631,12 @@
     color: #fff;
     font-weight: 600;
     width: 25%;
+}
+
+@media screen and (min-width: 600px) {
+    .form button {
+      width: 50%;
+    }
 }
 
 .form button:focus{
