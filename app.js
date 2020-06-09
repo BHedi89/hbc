@@ -100,7 +100,7 @@ class UI {
       button.addEventListener("click", event => {
         event.target.innerText = 'In Cart';
         event.target.disabled = true;
-        
+
         //get product from the products
         let cartItem = { ...Storage.getProduct(buttonId), amount: 1 };
         //add product to the cart
@@ -249,12 +249,12 @@ class UI {
       let closeModal = document.getElementsByClassName("fa-window-close")[0];
       let buttonId = button.dataset.id;
 
-      button.addEventListener("click", () => { 
+      button.addEventListener("click", () => {
         //show modal
         modal.style.display = "block";
 
         //display image info into the modal
-        let modalInfo = { ...Storage.getProduct(buttonId)};
+        let modalInfo = { ...Storage.getProduct(buttonId) };
         this.displayModal(modalInfo);
       });
 
@@ -287,7 +287,7 @@ class UI {
   };
 
   //scroll down to product with "shop now" button
-  scrollDownToProducts(){
+  scrollDownToProducts() {
     let scrollToProducts = document.querySelector(".product-title");
 
     shopNowBtn.addEventListener("click", () => {
@@ -301,10 +301,10 @@ class UI {
       document.getElementById("myMenu").style.width = "250px";
       this.showMenu();
     });
-  };  
+  };
 
   //close the menu with it's "x" button
-  closeMenu(){
+  closeMenu() {
     let closeMenuBtn = document.querySelector("#closeMenu");
 
     closeMenuBtn.addEventListener("click", () => {
@@ -314,7 +314,7 @@ class UI {
   };
 
   //show the menu
-  showMenu(){
+  showMenu() {
     menuOverlay.classList.add("transparentBcgMenu");
   };
 
@@ -324,7 +324,8 @@ class UI {
   };
 
   //scroll down to the product page from menu
-  scrollProductsFromMenu() {0
+  scrollProductsFromMenu() {
+    0
     let productsMenu = document.querySelector(".products");
     let productMenuBtn = document.querySelector(".menu-to-products");
 
@@ -349,7 +350,7 @@ class UI {
 
   //scroll down to the contactpage from menu
   scrollDownContact() {
-    let contactMenu = document.querySelector(".contact-title");
+    let contactMenu = document.querySelector(".contact");
     let contactMenuBtn = document.querySelector(".menu-to-contact");
 
     contactMenuBtn.addEventListener("click", () => {
@@ -359,9 +360,50 @@ class UI {
     });
   };
 
-  // contact from validations
+  validation() {
+    // contact from validations
+    let firstNameInput = document.getElementById("firstNameInput");
+    let lastNameInput = document.getElementById("lastNameInput");
+    let emailInput = document.getElementById("emailInput");
+    let messageInput = document.getElementById("messageInput");
 
+    let submitForm = document.querySelector(".form");
+
+    let emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+    submitForm.addEventListener("click", (e) => {
+      e.preventDefault();
+      firstNameInput.classList.remove("is-invalid");
+      lastNameInput.classList.remove("is-invalid");
+      emailInput.classList.remove("is-invalid");
+      messageInput.classList.remove("is-invalid");
+
+      let isGood = true;
+      //first name validation
+      if (firstNameInput.value === "") {
+        firstNameInput.classList.add("is-invalid");
+        isGood = false;
+      }
+      //last name validation
+      if (lastNameInput.value === "") {
+        lastNameInput.classList.add("is-invalid");
+        isGood = false;
+      }
+
+      //email validation
+      if (!emailRegex.test(emailInput.value)) {
+        emailInput.classList.add("is-invalid");
+        isGood = false;
+      }
+
+      if (messageInput.value  === "") {
+        messageInput.classList.add("is-invalid");
+        isGood = false;
+      }
+    }, false);
+  };
 }
+
 
 //using local storage to save datas
 class Storage {
@@ -404,5 +446,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.scrollProductsFromMenu();
     ui.scrollDownAbout();
     ui.scrollDownContact();
+    ui.validation();
   });
 });
