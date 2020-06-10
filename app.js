@@ -1,3 +1,5 @@
+"use strict";
+
 const client = contentful.createClient({
   // This is the space ID. A space is like a project folder in Contentful terms
   space: "8giyq4i3wcjo",
@@ -362,34 +364,30 @@ class UI {
 
   validation() {
     // contact from validations
-    let firstNameInput = document.getElementById("firstNameInput");
-    let lastNameInput = document.getElementById("lastNameInput");
+    let nameInput = document.getElementById("nameInput");
     let emailInput = document.getElementById("emailInput");
     let messageInput = document.getElementById("messageInput");
 
-    let submitForm = document.querySelector(".form");
+    let submitBtn = document.querySelector(".form");
 
     let emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
-    submitForm.addEventListener("click", (e) => {
+    //hide alert message
+    $('.alert').hide();
+
+    submitBtn.addEventListener("submit", (e) => {
       e.preventDefault();
-      firstNameInput.classList.remove("is-invalid");
-      lastNameInput.classList.remove("is-invalid");
+      nameInput.classList.remove("is-invalid");
       emailInput.classList.remove("is-invalid");
       messageInput.classList.remove("is-invalid");
 
       let isGood = true;
-      //first name validation
-      if (firstNameInput.value === "") {
-        firstNameInput.classList.add("is-invalid");
+      //name validation
+      if (nameInput.value === "") {
+        nameInput.classList.add("is-invalid");
         isGood = false;
       }
-      //last name validation
-      if (lastNameInput.value === "") {
-        lastNameInput.classList.add("is-invalid");
-        isGood = false;
-      }
-
+     
       //email validation
       if (!emailRegex.test(emailInput.value)) {
         emailInput.classList.add("is-invalid");
@@ -400,10 +398,17 @@ class UI {
         messageInput.classList.add("is-invalid");
         isGood = false;
       }
+
+      nameInput.value = "";
+      emailInput.value = "";
+      messageInput.value = "";
+
+      //show alert message
+      $('.alert').show();
+      
     }, false);
   };
 }
-
 
 //using local storage to save datas
 class Storage {
