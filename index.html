@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -23,8 +25,18 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
     <!-- style.css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/hero.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/line.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="stylesheet" href="./css/workshop.css">
 </head>
+
 
 <body>
 
@@ -42,7 +54,7 @@
 
     <!-- end of header -->
 
-    <!-- background -->
+    <!-- background/hero -->
     <div class="page-bcg">
         <div class="banner">
             <h3 class="banner-title">Bead Collection</h3>
@@ -54,31 +66,33 @@
     <div class="lineBetween"></div>
 
     <!-- about -->
-    <h1 class="about-title">About Me</h1>
-    <div class="about">
-        <div class="about-content">
-            <div class="about-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut
-                    labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+    <div class="about-content">
+        <div class="frame">
+            <div class="picture"></div>
+            <div class="social facebook">
+                <a href="" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
             </div>
-        </div>
-    </div>
 
+            <div class="social linkedin">
+                <a href="" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+            <div class="social codepen">
+                <a href="" target="_blank">
+                    <i class="fab fa-codepen"></i>
+                </a>
+            </div>
+        </div>ű
+    </div>
     <!-- end of about -->
 
     <div class="lineBetween"></div>
 
     <!-- products -->
-
     <div class="products">
         <div class="product-title">
             <h1>Our Products</h1>
@@ -89,13 +103,27 @@
             <!-- end of single product -->
         </div>
     </div>
-
     <!-- end of products -->
 
     <div class="lineBetween"></div>
 
-    <!-- contact -->
+    <!-- workshop -->
+    <div class="workshop">
+        <div class="workshop-title">
+            <h1>Workshop</h1>
+        </div>
+        <div class="workshop-content">
+            <div class="wrapper">
+                <!-- workshop cards -->
 
+                <!-- end of workshop cards -->
+            </div>
+        </div>
+    </div>
+    <!-- end of workshop -->
+    <div class="lineBetween"></div>
+
+    <!-- contact -->
     <div class="contact-content">
         <div class="container contact">
             <div class="contact-title">
@@ -158,13 +186,11 @@
             </div>
         </div>
     </div>
-
     <!-- end of contact -->
 
     <div class="lineBetween"></div>
 
     <!-- modal -->
-
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="fas fa-window-close"></span>
@@ -175,11 +201,9 @@
             <!-- end of modal item -->
         </div>
     </div>
-
     <!-- end of modal -->
 
     <!-- cart -->
-
     <div class="cart-overlay">
         <div class="cart">
             <span class="close-cart">
@@ -197,7 +221,6 @@
             </div>
         </div>
     </div>
-
     <!-- end of cart -->
 
     <!-- menu -->
@@ -206,10 +229,10 @@
             <i class="far fa-window-close" id="closeMenu"></i>
             <button class="menu-to-about">About</button>
             <button class="menu-to-products">Products</button>
+            <button class="menu-to-workshop">Workshop</button>
             <button class="menu-to-contact">Contact</button>
         </div>
     </div>
-
     <!-- end of menu -->
 
     <!-- contentful -->

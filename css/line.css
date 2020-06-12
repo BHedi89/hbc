@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/*---------- line ----------*/
+
+.lineBetween{
+    width: 100%;
+    height: 10px;
+    background-color: gold;
+}
+
+/*---------- end of line ----------*/

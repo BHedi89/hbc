@@ -23,7 +23,7 @@ const modalContent = document.querySelector(".modal-content");
 const shopNowBtn = document.querySelector(".banner-button");
 const menuBtn = document.querySelector(".menu-btn");
 const menuOverlay = document.querySelector(".menu-overlay");
-const menuDOM = document.querySelector(".menu");
+const workshopDOM = document.querySelector(".wrapper");
 
 //cart array
 let cart = [];
@@ -51,8 +51,30 @@ class Product {
       return products;
     } catch (error) {
       console.log(error);
-    }
-  }
+    };
+  };
+}
+
+class Workshop {
+  async getWorkshopCards() {
+    try {
+      let contentful = await client.getEntries({
+        content_type: "workshopCard"
+      });
+
+      let cards = contentful.items;
+      cards = cards.map(item => {
+        const { title, description } = item.fields;
+        const { id } = item.sys;
+        const image = item.fields.image.fields.file.url;
+        return { title, description, id, image };
+      });
+
+      return cards;
+    } catch (error) {
+      console.log(error);
+    };
+  };
 }
 
 class UI {
@@ -408,6 +430,33 @@ class UI {
       
     }, false);
   };
+
+  displayWorkshopCards(cards) {
+    let result = "";
+    cards.forEach(card => {
+      result += `
+        <div class="card workshop-card">
+          <img src=${card.image} alt="">                
+              <div class="descriptions">
+              <h1>${card.title}</h1>
+              <p>${card.description}</p>
+              <button>Apply</button>
+          </div>
+        </div>`;
+    });
+    workshopDOM.innerHTML = result;
+  };
+
+  scrollDownToWorkshop() {
+    let workshopMenuBtn = document.querySelector(".menu-to-workshop");
+    let workshopSite = document.querySelector(".workshop-title");
+
+    workshopMenuBtn.addEventListener("click", () => {
+      document.getElementById("myMenu").style.width = "0";
+      this.hideMenu();
+      workshopSite.scrollIntoView();
+    });
+  };
 }
 
 //using local storage to save datas
@@ -434,6 +483,7 @@ class Storage {
 document.addEventListener("DOMContentLoaded", () => {
   const products = new Product();
   const ui = new UI();
+  const workshop = new Workshop();
 
   //setup APP
   ui.setupAPP();
@@ -445,12 +495,17 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.getCartButton();
     ui.cartLogic();
     ui.getProductInfo();
-    ui.scrollDownToProducts();
     ui.getMenu();
     ui.closeMenu();
+    ui.scrollDownToProducts();
     ui.scrollProductsFromMenu();
     ui.scrollDownAbout();
     ui.scrollDownContact();
+    ui.scrollDownToWorkshop();
     ui.validation();
+  });
+
+  workshop.getWorkshopCards().then(cards => {
+    ui.displayWorkshopCards(cards);
   });
 });
