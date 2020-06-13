@@ -362,7 +362,7 @@ class UI {
 
   //scroll down to the about page from menu
   scrollDownAbout() {
-    let aboutMenu = document.querySelector(".about-title");
+    let aboutMenu = document.querySelector(".frame");
     let aboutMenuBtn = document.querySelector(".menu-to-about");
 
     aboutMenuBtn.addEventListener("click", () => {
