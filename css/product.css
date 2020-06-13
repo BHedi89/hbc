@@ -8,14 +8,14 @@
 /*---------- product ----------*/
 
 .products {
-    background: url("../images/bcg3.jpg") center/cover no-repeat;
+    background: url("../images/bead.jpg") center/cover no-repeat;
     background-attachment: fixed;
 }
 
 .product-title {
     text-align: center;
     padding: 60px;
-    color: rgba(0, 0, 0, 0.479);
+    color: rgba(0, 0, 0, 0.699);
 }
 
 @media screen and (min-width: 601px) {

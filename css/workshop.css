@@ -8,7 +8,8 @@
 /*---------- workshop ----------*/
 
 .workshop {
-    background-image: linear-gradient(#FFFFCC, #FF66FF);
+    background: url("../images/workshop2.jpg") center/cover no-repeat;
+    background-attachment: fixed;
 }
 
 .workshop-title {
