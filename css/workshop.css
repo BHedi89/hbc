@@ -45,7 +45,7 @@
     flex-basis: 300px;
     flex-grow: 0;
     height: 490px;
-    width: 350px;
+    
     background: #fff;
     border: 2px solid #fff;
     box-shadow: 0px 4px 7px rgba(0,0,0,.5);
@@ -57,7 +57,13 @@
 
 @media screen and (min-width: 601px) {
     .workshop-card{  
-        margin-right: 20px;
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .workshop-card{  
+        width: 330px;
     }
 }
 
