@@ -15,7 +15,7 @@
     height: 100%;
     transition: all 0.3s linear;
     background: #fefefec0;
-    z-index: 2;
+    z-index: 4;
     visibility: hidden;
 }
 
@@ -27,7 +27,7 @@
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 4;
     top: 0;
     left: 0;
     background-color: rgb(231, 226, 221);
