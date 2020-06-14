@@ -55,6 +55,7 @@ class Product {
   };
 }
 
+//get workshop cards from Contentful
 class Workshop {
   async getWorkshopCards() {
     try {
@@ -347,6 +348,18 @@ class UI {
     menuOverlay.classList.remove("transparentBcgMenu");
   };
 
+  //scroll to the home page
+  scrollToHomePage() {
+    let homeMenuBtn = document.querySelector(".menu-to-home");
+    let homePage = document.querySelector(".page-bcg");
+
+    homeMenuBtn.addEventListener("click", () => {
+      document.getElementById("myMenu").style.width = "0";
+      this.hideMenu();
+      homePage.scrollIntoView();
+    });
+  };
+
   //scroll down to the product page from menu
   scrollProductsFromMenu() {
     0
@@ -384,6 +397,7 @@ class UI {
     });
   };
 
+  //validate the contact form
   validation() {
     // contact from validations
     let nameInput = document.getElementById("nameInput");
@@ -431,6 +445,7 @@ class UI {
     }, false);
   };
 
+  //display the workshop cards from Contentful
   displayWorkshopCards(cards) {
     let result = "";
     cards.forEach(card => {
@@ -447,6 +462,7 @@ class UI {
     workshopDOM.innerHTML = result;
   };
 
+  //scroll down to workshop page from menu
   scrollDownToWorkshop() {
     let workshopMenuBtn = document.querySelector(".menu-to-workshop");
     let workshopSite = document.querySelector(".workshop-title");
@@ -497,6 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.getProductInfo();
     ui.getMenu();
     ui.closeMenu();
+    ui.scrollToHomePage();
     ui.scrollDownToProducts();
     ui.scrollProductsFromMenu();
     ui.scrollDownAbout();
