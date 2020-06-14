@@ -22,8 +22,22 @@
 .frame .social.codepen:hover i, .frame .social.codepen:focus i, .frame .social.linkedin:hover i, .frame .social.linkedin:focus i, 
 .frame .social.facebook:hover i, .frame .social.facebook:focus i {
   opacity: 1;
-  font-size: 20vw;
-  margin: 15vw 33vw;
+}
+
+@media screen and (min-width: 601px) {
+  .frame .social.codepen:hover i, .frame .social.codepen:focus i, .frame .social.linkedin:hover i, .frame .social.linkedin:focus i, 
+  .frame .social.facebook:hover i, .frame .social.facebook:focus i.frame{  
+    font-size: 20vw;
+    margin: 15vw 33vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .frame .social.codepen:hover i, .frame .social.codepen:focus i, .frame .social.linkedin:hover i, .frame .social.linkedin:focus i, 
+  .frame .social.facebook:hover i, .frame .social.facebook:focus i{
+    font-size: 40vw;
+    margin: 45vw 28vw;
+  }
 }
 
 .frame {
