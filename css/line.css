@@ -7,10 +7,34 @@
 
 /*---------- line ----------*/
 
-.lineBetween{
+.line1{
     width: 100%;
-    height: 10px;
+    height: 5px;
     background-color: gold;
+}
+
+.line2{
+    width: 100%;
+    height: 5px;
+    background-color: turquoise;
+}
+
+.line3{
+    width: 100%;
+    height: 5px;
+    background-color: rgb(175, 146, 146);
+}
+
+.line4{
+    width: 100%;
+    height: 5px;
+    background-color: gray;
+}
+
+.line5{
+    width: 100%;
+    height: 5px;
+    background-color: rgb(172, 109, 109);
 }
 
 /*---------- end of line ----------*/
