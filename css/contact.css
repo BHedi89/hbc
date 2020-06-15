@@ -128,4 +128,8 @@
     cursor: pointer;
 }
 
+.fa-instagram, .fa-twitter, .fa-facebook-square {
+    color: rgb(252, 252, 38);
+}
+
 /*---------- end of contact ----------*/

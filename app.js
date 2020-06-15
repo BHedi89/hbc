@@ -99,7 +99,7 @@ class UI {
               </div>
               <div class="card-body">
                 <p>${product.title}<button class="fas fa-info-circle" data-id=${product.id}></button></p>
-                <p>${product.price} Ft</p>
+                <p>${product.price} HUF</p>
               </div>
             </div>
           </article>`;
