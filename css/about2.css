@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Lato", sans-serif;
   }
   
 /*---------- about ----------*/
@@ -18,7 +17,7 @@ body{
     font-family: sans-serif;
 }
 
-.card{
+.about-card{
     position: absolute;
     width: 300px;
     height: 350px;
@@ -28,21 +27,21 @@ body{
 }
 
 @media screen and (min-width: 601px) {
-    .card {
+    .about-card {
         margin-left: 320px;
         margin-top: 100px;
     }
-  }
+}
   
-  @media screen and (max-width: 600px) {
-    .card {
+@media screen and (max-width: 600px) {
+    .about-card {
         margin-left: 100px;
         margin-top: 120px;
     }
-  }
+}
 
-.card:before,
-.card:after {
+.about-card:before,
+.about-card:after {
     content:"";
     position: absolute;
     top: 0;
@@ -55,17 +54,17 @@ body{
     z-index:-1;
 }
 
-.card:hover:before {
+.about-card:hover:before {
   transform: rotate(20deg);
   box-shadow: 0 2px 20px rgba(0,0,0,.2);
 }
 
-.card:hover:after {
+.about-card:hover:after {
   transform: rotate(10deg);
   box-shadow: 0 2px 20px rgba(0,0,0,.2);
 }
 
-.card .imgBx {
+.about-card .imgBx {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -80,7 +79,7 @@ body{
     bottom: 80px;
 }
 
-.card .imgBx img {
+.about-card .imgBx img {
     position: absolute;
     top: 0;
     left: 0;
@@ -89,7 +88,7 @@ body{
     object-fit: cover;
 }
 
-.card .details {
+.about-card .details {
     position: absolute;
     left: 10px;
     right: 10px;
@@ -98,7 +97,7 @@ body{
     text-align: center;
 }
 
-.card .details h2 {
+.about-card .details h2 {
    margin: 0;
    padding: 0;
    font-weight: 600;
@@ -107,12 +106,41 @@ body{
    text-transform: uppercase;
 } 
 
-.card .details h2 span {
+.about-card .details h2 span {
   font-weight: 500;
   font-size: 16px;
   color: #f38695;
   display: block;
   margin-top: 5px;
 } 
+
+.about-text {
+    position: absolute;
+    color: white;
+    width: 600px;
+    text-align: justify;
+    background-color: rgba(128, 128, 128, 0.616);
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.about-text p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 601px) {
+    .about-text {
+        margin-left: 700px;
+        margin-top: 300px;
+    }
+}
+  
+@media screen and (max-width: 600px) {
+    .about-text {
+        margin-left: 100px;
+        margin-top: 120px;
+    }
+}
 
 /*---------- end of about ----------*/
