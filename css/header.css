@@ -45,23 +45,13 @@
     }
 }
 
-.fa-bars, .fa-shopping-cart {
+.fa-bars {
     font-size: 25px;
     cursor: pointer;
 }
 
-.cart-btn {
-    position: relative;
-}
-
-.cart-items {
-    position: absolute;
-    background-color: sandybrown;
-    top: -8px;
-    right: -8px;
-    padding: 0 5px;
-    border-radius: 8px;
-    color: white;
+.fa-hire-a-helper {
+    font-size: 30px;
 }
 
 /*---------- end of header ----------*/
