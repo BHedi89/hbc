@@ -13,7 +13,7 @@ body{
 .box{
     display: flex;
     justify-content: flex-start;
-    min-height: 92vh;
+    min-height: 100vh;
     font-family: sans-serif;
 }
 

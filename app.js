@@ -8,8 +8,8 @@ const client = contentful.createClient({
 });
 
 //variables
-const productDOM = document.querySelector(".product-center")
-const productDOM2 = document.querySelector(".product-center2")
+const productDOM = document.querySelector(".photos")
+const productDOM2 = document.querySelector(".photos2")
 const shopNowBtn = document.querySelector(".banner-button");
 const menuBtn = document.querySelector(".menu-btn");
 const menuOverlay = document.querySelector(".menu-overlay");
@@ -69,17 +69,7 @@ class UI {
     products.forEach(product => {
       if(product.type === "bead") {
         result += `
-          <div class="scene">
-            <div class="card">
-              <div class="card__face card__face--front">
-                <img src=${product.image}>
-              </div>
-              <div class="card__face card__face--back">
-                <img src=${product.image}>
-                <div class="img-title">${product.title}</div>
-              </div>
-            </div>
-          </div>`;
+            <img src=${product.image} id="photos">`;
       }
     });
     productDOM.innerHTML = result;
@@ -91,17 +81,7 @@ class UI {
     products.forEach(product => {
       if(product.type === "soutache") {
         result += `
-          <div class="scene">
-            <div class="card">
-              <div class="card__face card__face--front">
-                <img src=${product.image}>
-              </div>
-              <div class="card__face card__face--back">
-                <img src=${product.image}>
-                <div class="img-title">${product.title}</div>
-              </div>
-            </div>
-          </div>`;
+          <img src=${product.image} id="photos">`;
       }
     });
     productDOM2.innerHTML = result;
