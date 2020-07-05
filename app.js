@@ -62,7 +62,7 @@ class Workshop {
 }
 
 class UI {
-  //display products from Contentful
+  //display bead products from Contentful
   displayBeadProducts(products) {
     let result = "";
 
@@ -75,6 +75,7 @@ class UI {
     productDOM.innerHTML = result;
   }
 
+   //display soutache products from Contentful
   displaySoutacheProducts(products) {
     let result = "";
 
@@ -136,7 +137,6 @@ class UI {
 
   //scroll down to the product page from menu
   scrollProductsFromMenu() {
-    0
     let productsMenu = document.querySelector(".products");
     let productMenuBtn = document.querySelector(".menu-to-products");
 
@@ -149,7 +149,7 @@ class UI {
 
   //scroll down to the about page from menu
   scrollDownAbout() {
-    let aboutMenu = document.querySelector(".frame");
+    let aboutMenu = document.querySelector(".about");
     let aboutMenuBtn = document.querySelector(".menu-to-about");
 
     aboutMenuBtn.addEventListener("click", () => {

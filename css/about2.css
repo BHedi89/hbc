@@ -7,6 +7,27 @@
 
 /*---------- about ----------*/
 
+.about {
+    min-height: 108vh;
+}
+
+.about-title {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.699);
+}
+
+@media screen and (min-width: 601px) {
+    .about-title {
+      font-size: 200px;
+    }
+}
+  
+@media screen and (max-width: 600px) {
+    .about-title  {
+      font-size: 40px;
+    }
+}
+
 img {
   max-width: 100%; 
 }
@@ -41,7 +62,7 @@ ul, ol {
 
 .header-area {
   position: relative;
-  height: 100vh;
+  height: 140vh;
   overflow: hidden; 
 }
   
@@ -328,7 +349,6 @@ ul, ol {
     -o-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
-
 
 .cb-slideshow { 
     width: 100%;
