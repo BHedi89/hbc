@@ -8,12 +8,16 @@ const client = contentful.createClient({
 });
 
 //variables
-const productDOM = document.querySelector(".photos")
-const productDOM2 = document.querySelector(".photos2")
+const productDOM = document.querySelector(".product-center")
+const productDOM2 = document.querySelector(".product-center2")
 const shopNowBtn = document.querySelector(".banner-button");
 const menuBtn = document.querySelector(".menu-btn");
 const menuOverlay = document.querySelector(".menu-overlay");
 const workshopDOM = document.querySelector(".wrapper");
+const modalContent = document.querySelector(".modal-content");
+
+//buttons arrays
+let infoButtonsList = [];
 
 //get products from Contentful
 class Product {
@@ -67,22 +71,44 @@ class UI {
     let result = "";
 
     products.forEach(product => {
-      if(product.type === "bead") {
+      if (product.type === "bead") {
         result += `
-            <img src=${product.image} id="photos">`;
+          <article class="product">
+            <div class="card">
+                <div class="products-images">
+                  <img
+                    src=${product.image}
+                    alt="product"
+                    class="product-img card-img-top" 
+                  />
+                </div>
+                <i class="fas fa-search-plus" data-id=${product.id}></i>
+            </div>
+          </article>`;
       }
     });
     productDOM.innerHTML = result;
   }
 
-   //display soutache products from Contentful
+  //display soutache products from Contentful
   displaySoutacheProducts(products) {
     let result = "";
 
     products.forEach(product => {
-      if(product.type === "soutache") {
+      if (product.type === "soutache") {
         result += `
-          <img src=${product.image} id="photos">`;
+          <article class="product">
+            <div class="card">
+                <div class="products-images">
+                    <img
+                    src=${product.image}
+                    alt="product"
+                    class="product-img card-img-top" 
+                    />
+                </div>
+                <i class="fas fa-search-plus" data-id=${product.id}></i>
+            </div>
+        </article>`;
       }
     });
     productDOM2.innerHTML = result;
@@ -247,7 +273,59 @@ class UI {
       workshopSite.scrollIntoView();
     });
   };
+
+  getImgZoom() {
+    let infoButtons = [...document.querySelectorAll(".fa-search-plus")]; //make an array from the buttons
+    infoButtonsList = infoButtons;
+
+    infoButtons.forEach(button => {
+      let modal = document.getElementById("myModal");
+      let closeModal = document.getElementsByClassName("close-modal")[0];
+      let buttonId = button.dataset.id;
+
+      button.addEventListener("click", () => {
+        //show modal
+        modal.style.display = "block";
+
+        //display image info into the modal
+        let modalInfo = { ...Storage.getProduct(buttonId) };
+        this.displayModal(modalInfo);
+      });
+
+      closeModal.addEventListener("click", () => {
+        //close the modal
+        modal.style.display = "none";
+
+        //clear the modal
+        this.clearModal();
+      });
+    });
+  };
+
+  //clear the modal
+  clearModal() {
+    const modalItem = document.querySelector(".modal-item");
+    modalContent.removeChild(modalItem);
+  };
+
+  //display the modal
+  displayModal(product) {
+    const createDiv = document.createElement("div");
+    createDiv.classList.add("modal-item");
+    createDiv.innerHTML = `
+      <p class="product-title">${product.title}</p>
+      <img class="modal-img responsive-modal-img" src=${product.image}>`;
+    modalContent.appendChild(createDiv);
+  };
 }
+
+//using local storage to save datas
+class Storage {
+  static getProduct(id) {
+      let products = JSON.parse(localStorage.getItem('products'));
+      return products.find(product => product.id === id);
+  };
+};
 
 //DOM load
 document.addEventListener("DOMContentLoaded", () => {
@@ -268,6 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.scrollDownContact();
     ui.scrollDownToWorkshop();
     ui.validation();
+    ui.getImgZoom();
   });
 
   workshop.getWorkshopCards().then(cards => {
