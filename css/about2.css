@@ -113,7 +113,7 @@ ul, ol {
 }
 
 .header-card .header-card-wrapper {
-    background-color: #fff;
+    background-color:white;
     z-index: 999;
     border-radius: 5px;
     overflow: hidden; 
